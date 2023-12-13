@@ -1,0 +1,74 @@
+﻿@model IEnumerable<KelCVBajaDivaManufaktur.Models.Transaksi>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4 class="card-title">Data Transaksi</h4>
+            <a asp-action="Create" class="btn btn-success">
+                <i class="fa fa-plus"></i> Tambah
+            </a>
+        </div>
+        <p class="card-description">Daftar Transaksi</p>
+
+        <form asp-controller="Transaksis" asp-action="Index" method="get">
+            <div class="input-group">
+                <div class="input-group-prepend hover-cursor" id="search">
+                    <span class="input-group-text" id="search">
+                        <i class="icon-search"></i>
+                    </span>
+                </div>
+                <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
+            </div>
+        </form>
+
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.NamaPelanggan)</th>
+                        <th>@Html.DisplayNameFor(model => model.NamaMenu)</th>
+                        <th>@Html.DisplayNameFor(model => model.TanggalBeli)</th>
+                        <th>@Html.DisplayNameFor(model => model.Jumlah)</th>
+                        <th>@Html.DisplayNameFor(model => model.TotalBayar)</th>
+                        <th>@Html.DisplayNameFor(model => model.CaraBayar)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.NamaPelanggan)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NamaMenu)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TanggalBeli)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Jumlah)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TotalBayar)</td>
+                            <td>@Html.DisplayFor(modelItem => item.CaraBayar)</td>
+                            <td class="d-flex">
+                                <form asp-action="Edit" asp-route-id="@item.Id" method="get">
+                                    <button type="submit" class="btn btn-warning btn-sm mr-1" title="Edit">
+                                        Edit
+                                    </button>
+                                </form>
+                                <form asp-action="Details" asp-route-id="@item.Id" method="get">
+                                    <button type="submit" class="btn btn-info btn-sm mr-1" title="Details">
+                                        Details
+                                    </button>
+                                </form>
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

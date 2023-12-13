@@ -1,0 +1,145 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = KelCVBajaDivaManufaktur
+build_property.RootNamespace = KelCVBajaDivaManufaktur
+build_property.ProjectDir = C:\Aplikasi\KelCVBajaDivaManufaktur\KelCVBajaDivaManufaktur\KelCVBajaDivaManufaktur\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Aplikasi\KelCVBajaDivaManufaktur\KelCVBajaDivaManufaktur\KelCVBajaDivaManufaktur
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/BahanBakus/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFoYW5CYWt1c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/BahanBakus/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFoYW5CYWt1c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/BahanBakus/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFoYW5CYWt1c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/BahanBakus/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFoYW5CYWt1c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/BahanBakus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFoYW5CYWt1c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Penggunas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZ2d1bmFzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Penggunas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZ2d1bmFzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Penggunas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZ2d1bmFzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Penggunas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZ2d1bmFzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Penggunas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZ2d1bmFzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Produks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Produks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Produks/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Produks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Produks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Suppliers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Suppliers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Suppliers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Suppliers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Suppliers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Transaksis/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNha3Npc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Transaksis/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNha3Npc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Transaksis/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNha3Npc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Transaksis/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNha3Npc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Transaksis/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNha3Npc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-24z8ne6xsb

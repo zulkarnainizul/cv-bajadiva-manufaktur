@@ -1,0 +1,105 @@
+﻿@model IEnumerable<KelCVBajaDivaManufaktur.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .pagination {
+        display: inline-block;
+    }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            .pagination a:hover {
+                background-color: #ddd;
+            }
+
+        .pagination .active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .pagination .disabled {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+</style>
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4 class="card-title">Data Supplier</h4>
+            <a asp-action="Create" class="btn btn-success">
+                <i class="fa fa-plus"></i> Tambah
+            </a>
+        </div>
+        <p class="card-description">Daftar Supplier</p>
+
+        <form asp-controller="Suppliers" asp-action="Index" method="get">
+            <div class="input-group">
+                <div class="input-group-prepend hover-cursor" id="search">
+                    <span class="input-group-text" id="search">
+                        <i class="icon-search"></i>
+                    </span>
+                </div>
+                <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
+            </div>
+        </form>
+
+        <div class="table-responsive mt-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.NamaSupplier)</th>
+                        <th>@Html.DisplayNameFor(model => model.Alamat)</th>
+                        <th>@Html.DisplayNameFor(model => model.NoHP)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.NamaSupplier)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Alamat)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NoHP)</td>
+                            <td class="d-flex">
+                                <form asp-action="Edit" asp-route-id="@item.Id" method="get">
+                                    <button type="submit" class="btn btn-warning btn-sm mr-1" title="Edit">
+                                        Edit
+                                    </button>
+                                </form>
+                                <form asp-action="Details" asp-route-id="@item.Id" method="get">
+                                    <button type="submit" class="btn btn-info btn-sm mr-1" title="Details">
+                                        Details
+                                    </button>
+                                </form>
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <a href="#" class="disabled">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#" class="disabled">&raquo;</a>
+            </div>
+        </div>
+    </div>
+</div>
