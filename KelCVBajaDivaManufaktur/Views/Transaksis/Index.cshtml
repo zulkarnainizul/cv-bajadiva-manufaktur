@@ -4,6 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    .table-container {
+        max-height: 400px; /* Sesuaikan dengan tinggi maksimum yang diinginkan */
+        overflow-y: auto;
+    }
+</style>
+
 <div class="card">
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center">
@@ -25,10 +32,11 @@
             </div>
         </form>
 
-        <div class="table-responsive-sm">
+        <div class="table-responsive mt-3 table-container">
             <table class="table">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>@Html.DisplayNameFor(model => model.NamaPelanggan)</th>
                         <th>@Html.DisplayNameFor(model => model.NamaMenu)</th>
                         <th>@Html.DisplayNameFor(model => model.TanggalBeli)</th>
@@ -39,9 +47,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @{
+                        int rowNumber = 1; // Inisialisasi nomor baris
+                    }
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>@rowNumber</td>
                             <td>@Html.DisplayFor(modelItem => item.NamaPelanggan)</td>
                             <td>@Html.DisplayFor(modelItem => item.NamaMenu)</td>
                             <td>@Html.DisplayFor(modelItem => item.TanggalBeli)</td>
@@ -66,6 +78,7 @@
                                 </form>
                             </td>
                         </tr>
+                        rowNumber++;
                     }
                 </tbody>
             </table>

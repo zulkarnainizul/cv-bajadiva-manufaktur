@@ -3,32 +3,14 @@
 @{
     ViewData["Title"] = "Index";
 }
+
 <style>
-    .pagination {
-        display: inline-block;
+    .table-container {
+        max-height: 400px; /* Sesuaikan dengan tinggi maksimum yang diinginkan */
+        overflow-y: auto;
     }
-
-        .pagination a {
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-
-            .pagination a:hover {
-                background-color: #ddd;
-            }
-
-        .pagination .active {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .pagination .disabled {
-            pointer-events: none;
-            cursor: not-allowed;
-        }
 </style>
+
 
 <div class="card">
     <div class="card-body">
@@ -51,20 +33,25 @@
             </div>
         </form>
 
-        <div class="table-responsive mt-3">
+        <div class="table-responsive mt-3 table-container">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>@Html.DisplayNameFor(model => model.NamaSupplier)</th>
-                        <th>@Html.DisplayNameFor(model => model.Alamat)</th>
-                        <th>@Html.DisplayNameFor(model => model.NoHP)</th>
+                        <th>No</th>
+                        <th>Nama Supplier</th>
+                        <th>Alamat</th>
+                        <th>No HP</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @{
+                        int rowNumber = 1; // Inisialisasi nomor baris
+                    }
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>@rowNumber</td>
                             <td>@Html.DisplayFor(modelItem => item.NamaSupplier)</td>
                             <td>@Html.DisplayFor(modelItem => item.Alamat)</td>
                             <td>@Html.DisplayFor(modelItem => item.NoHP)</td>
@@ -86,20 +73,10 @@
                                 </form>
                             </td>
                         </tr>
+                        rowNumber++;
                     }
                 </tbody>
             </table>
-
-            <div class="pagination">
-                <a href="#" class="disabled">&laquo;</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#" class="disabled">&raquo;</a>
-            </div>
         </div>
     </div>
 </div>
