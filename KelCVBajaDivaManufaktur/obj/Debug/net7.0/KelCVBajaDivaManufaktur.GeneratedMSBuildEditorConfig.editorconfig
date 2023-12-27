@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Aplikasi\KelCVBajaDivaManufaktur\KelCVBajaDivaManufaktur\KelCVBajaDivaManufaktur
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/Auth/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Aplikasi/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/KelCVBajaDivaManufaktur/Views/BahanBakus/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFoYW5CYWt1c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

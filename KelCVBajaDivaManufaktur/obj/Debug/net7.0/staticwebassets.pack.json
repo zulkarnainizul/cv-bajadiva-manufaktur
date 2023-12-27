@@ -765,6 +765,10 @@
       "PackagePath": "staticwebassets\\images\\lightbox\\thumb-v-y-2.jpg"
     },
     {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\list.png",
+      "PackagePath": "staticwebassets\\images\\list.png"
+    },
+    {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\logo-light.svg",
       "PackagePath": "staticwebassets\\images\\logo-light.svg"
     },
@@ -791,6 +795,14 @@
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\logo2.jpeg",
       "PackagePath": "staticwebassets\\images\\logo2.jpeg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\market.png",
+      "PackagePath": "staticwebassets\\images\\market.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\papan.png",
+      "PackagePath": "staticwebassets\\images\\papan.png"
     },
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\samples\\1280x768\\1.jpg",
@@ -911,6 +923,10 @@
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\samples\\300x300\\9.jpg",
       "PackagePath": "staticwebassets\\images\\samples\\300x300\\9.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\shopbag.png",
+      "PackagePath": "staticwebassets\\images\\shopbag.png"
     },
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\sprites\\blue.png",

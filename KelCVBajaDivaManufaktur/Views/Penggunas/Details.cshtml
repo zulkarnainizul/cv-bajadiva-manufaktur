@@ -27,44 +27,31 @@
 </head>
 
 <body>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Details Pengguna</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Nama Pengguna</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.NamaPengguna)</dd>
 
+                <dt class="col-sm-3">Username</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Username)</dd>
 
-<h1>Details</h1>
+                <dt class="col-sm-3">Password</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Password)</dd>
 
-<div>
-    <h4>Pengguna</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NamaPengguna)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NamaPengguna)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Username)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HakAkses)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HakAkses)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+                <dt class="col-sm-3">Hak Akses</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.HakAkses)</dd>
+            </dl>
+
+            <div class="mt-3">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+                <a asp-action="Index" class="btn btn-light">Kembali</a>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>

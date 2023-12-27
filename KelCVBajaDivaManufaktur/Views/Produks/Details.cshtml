@@ -27,54 +27,39 @@
 </head>
 
 <body>
-<h1>Details</h1>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Details Produk</h4>
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/images/logo.jpg" class="img-fluid" alt="Gambar Produk">
+                </div>
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-3">Nama Produk</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.NamaProduk)</dd>
 
-<div>
-    <h4>Produk</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NamaProduk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NamaProduk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GambarProduk)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GambarProduk)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Stok)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Stok)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Harga)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Harga)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Kategori)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Kategori)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Deskripsi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Deskripsi)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+                        <dt class="col-sm-3">Stok</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Stok)</dd>
+
+                        <dt class="col-sm-3">Harga</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Harga)</dd>
+
+                        <dt class="col-sm-3">Kategori</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Kategori)</dd>
+
+                        <dt class="col-sm-3">Deskripsi</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Deskripsi)</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="mt-3">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+                <a asp-action="Index" class="btn btn-light">Kembali</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

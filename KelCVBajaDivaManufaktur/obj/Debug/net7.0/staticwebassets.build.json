@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tf/H6BbLcvcqUYN2rZIA0ZMrAnzb6zREaqzwdWZrjQI=",
+  "Hash": "C9MDl63Qod+g4NWGDWINkuCEnIij4VQCmA/C22YH480=",
   "Source": "KelCVBajaDivaManufaktur",
   "BasePath": "_content/KelCVBajaDivaManufaktur",
   "Mode": "Default",
@@ -3281,6 +3281,23 @@
       "OriginalItemSpec": "wwwroot\\images\\lightbox\\thumb-v-y-2.jpg"
     },
     {
+      "Identity": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\list.png",
+      "SourceId": "KelCVBajaDivaManufaktur",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\",
+      "BasePath": "_content/KelCVBajaDivaManufaktur",
+      "RelativePath": "images/list.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\list.png"
+    },
+    {
       "Identity": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\logo.jpg",
       "SourceId": "KelCVBajaDivaManufaktur",
       "SourceType": "Discovered",
@@ -3398,6 +3415,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\logo-white.svg"
+    },
+    {
+      "Identity": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\market.png",
+      "SourceId": "KelCVBajaDivaManufaktur",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\",
+      "BasePath": "_content/KelCVBajaDivaManufaktur",
+      "RelativePath": "images/market.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\market.png"
+    },
+    {
+      "Identity": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\papan.png",
+      "SourceId": "KelCVBajaDivaManufaktur",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\",
+      "BasePath": "_content/KelCVBajaDivaManufaktur",
+      "RelativePath": "images/papan.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\papan.png"
     },
     {
       "Identity": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\samples\\1280x768\\1.jpg",
@@ -3908,6 +3959,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\samples\\300x300\\9.jpg"
+    },
+    {
+      "Identity": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\shopbag.png",
+      "SourceId": "KelCVBajaDivaManufaktur",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\",
+      "BasePath": "_content/KelCVBajaDivaManufaktur",
+      "RelativePath": "images/shopbag.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\shopbag.png"
     },
     {
       "Identity": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\sprites\\blue.png",

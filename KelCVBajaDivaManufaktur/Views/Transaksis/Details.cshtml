@@ -27,55 +27,36 @@
 </head>
 
 <body>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Details Transaksi</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Nama Pelanggan</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.NamaPelanggan)</dd>
 
-<h1>Details</h1>
+                <dt class="col-sm-3">Nama Menu</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.NamaMenu)</dd>
 
-<div>
-    <h4>Transaksi</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NamaPelanggan)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NamaPelanggan)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NamaMenu)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NamaMenu)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TanggalBeli)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TanggalBeli)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Jumlah)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Jumlah)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalBayar)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalBayar)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CaraBayar)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CaraBayar)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+                <dt class="col-sm-3">Tanggal Beli</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.TanggalBeli)</dd>
+
+                <dt class="col-sm-3">Jumlah</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Jumlah)</dd>
+
+                <dt class="col-sm-3">Total Bayar</dt>
+                <dd class="col-sm-9">Rp. @Html.DisplayFor(model => model.TotalBayar)</dd>
+
+                <dt class="col-sm-3">Cara Bayar</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.CaraBayar)</dd>
+            </dl>
+
+            <div class="mt-3">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+                <a asp-action="Index" class="btn btn-light">Kembali</a>
+            </div>
+        </div>
+    </div>
 
 
 </body>

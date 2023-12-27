@@ -19,6 +19,21 @@ namespace KelCVBajaDivaManufaktur.Controllers
             _context = context;
         }
 
+        public IActionResult Dashboard()
+        {
+            // Ambil data total penjualan per bulan dari database
+            var dataPenjualan = _context.Transaksi
+                .GroupBy(t => new { t.TanggalBeli.Year, t.TanggalBeli.Month })
+                .Select(g => new { Year = g.Key.Year, Month = g.Key.Month, TotalPenjualan = g.Sum(t => t.TotalBayar) })
+                .OrderBy(g => g.Year)
+                .ThenBy(g => g.Month)
+                .ToList();
+
+            // Kirim data ke view
+            return View(dataPenjualan);
+        }
+
+
         // GET: Transaksis
         public async Task<IActionResult> Index(string searchString)
         {

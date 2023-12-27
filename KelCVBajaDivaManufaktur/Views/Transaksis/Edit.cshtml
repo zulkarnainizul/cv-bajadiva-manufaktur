@@ -27,56 +27,67 @@
 </head>
 
 <body>
+    <body>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Halaman Edit Transaksi</h4>
+                <p class="card-description">
+                    Edit Transaksi
+                </p>
+                <form asp-action="Edit" class="forms-sample">
+                    <div class="form-group">
+                        <label asp-for="NamaPelanggan">Nama Pelanggan</label>
+                        <input asp-for="NamaPelanggan" type="text" class="form-control" id="NamaPelanggan" placeholder="Masukkan Nama Pelanggan" required>
+                        <span asp-validation-for="NamaPelanggan" class="text-danger"></span>
+                    </div>
 
-<h1>Edit</h1>
+                    <div class="form-group">
+                        <label asp-for="NamaMenu">Nama Produk</label>
+                        <input asp-for="NamaMenu" type="text" class="form-control" id="NamaMenu" placeholder="Masukkan Nama Menu" required>
+                        <span asp-validation-for="NamaMenu" class="text-danger"></span>
+                    </div>
 
-<h4>Transaksi</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="NamaPelanggan" class="control-label"></label>
-                <input asp-for="NamaPelanggan" class="form-control" />
-                <span asp-validation-for="NamaPelanggan" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NamaMenu" class="control-label"></label>
-                <input asp-for="NamaMenu" class="form-control" />
-                <span asp-validation-for="NamaMenu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TanggalBeli" class="control-label"></label>
-                <input asp-for="TanggalBeli" class="form-control" />
-                <span asp-validation-for="TanggalBeli" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Jumlah" class="control-label"></label>
-                <input asp-for="Jumlah" class="form-control" />
-                <span asp-validation-for="Jumlah" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalBayar" class="control-label"></label>
-                <input asp-for="TotalBayar" class="form-control" />
-                <span asp-validation-for="TotalBayar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CaraBayar" class="control-label"></label>
-                <input asp-for="CaraBayar" class="form-control" />
-                <span asp-validation-for="CaraBayar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+                    <div class="form-group">
+                        <label asp-for="TanggalBeli">Tanggal Beli</label>
+                        <input asp-for="TanggalBeli" type="date" class="form-control" id="TanggalBeli" placeholder="Masukkan Tanggal Beli" required>
+                        <span asp-validation-for="TanggalBeli" class="text-danger"></span>
+                    </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+                    <div class="form-group">
+                        <label asp-for="Jumlah">Jumlah</label>
+                        <input asp-for="Jumlah" type="number" class="form-control" id="Jumlah" placeholder="Masukkan Jumlah" required>
+                        <span asp-validation-for="Jumlah" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="TotalBayar">Total Bayar</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white">Rp.</span>
+                            </div>
+                            <input asp-for="TotalBayar" type="number" class="form-control" id="TotalBayar" placeholder="Masukkan Total Bayar" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="TotalBayar" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CaraBayar">Cara Bayar</label>
+                        <select asp-for="CaraBayar" class="form-control" id="CaraBayar">
+                            <option value="Cash">Cash</option>
+                            <option value="Transfer">Transfer</option>
+                        </select>
+                        <span asp-validation-for="CaraBayar" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Simpan</button>
+                    <button asp-action="Index" class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </body>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -28,45 +28,53 @@
 
 <body>
 
-<h1>Edit</h1>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Edit Bahan Baku</h4>
+            <p class="card-description">
+                Edit Bahan Baku
+            </p>
+            <form asp-action="Edit" method="post" class="forms-sample">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
 
-<h4>BahanBaku</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="NamaBahan" class="control-label"></label>
-                <input asp-for="NamaBahan" class="form-control" />
-                <span asp-validation-for="NamaBahan" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Stok" class="control-label"></label>
-                <input asp-for="Stok" class="form-control" />
-                <span asp-validation-for="Stok" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Satuan" class="control-label"></label>
-                <input asp-for="Satuan" class="form-control" />
-                <span asp-validation-for="Satuan" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Supplier" class="control-label"></label>
-                <input asp-for="Supplier" class="form-control" />
-                <span asp-validation-for="Supplier" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <label asp-for="NamaBahan">Nama Bahan Baku</label>
+                    <input asp-for="NamaBahan" type="text" class="form-control" placeholder="Masukkan Nama Bahan Baku">
+                    <span asp-validation-for="NamaBahan" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Stok">Jumlah Stok</label>
+                    <input asp-for="Stok" type="number" class="form-control" placeholder="Masukkan Jumlah Stok">
+                    <span asp-validation-for="Stok" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Satuan">Satuan</label>
+                    <select asp-for="Satuan" class="form-control">
+                        <option>pcs</option>
+                        <option>keping</option>
+                        <option>batang</option>
+                        <option>gram</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Supplier">Supplier</label>
+                    <select asp-for="Supplier" class="form-control">
+                        <option>Supplier A</option>
+                        <option>Supplier B</option>
+                        <option>Supplier C</option>
+                        <option>Supplier D</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a asp-action="Index" class="btn btn-light">Kembali</a>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
