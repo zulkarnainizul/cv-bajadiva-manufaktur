@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Projects\\Project_PFE\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/KelCVBajaDivaManufakturContext_95a820fa_a1f1_424a_ac3d_36c535344efa/True/SqlTable/dbo.Pengguna.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{DD952B36-E8EF-4C33-935E-A0059917CA8D}|KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur.csproj|c:\\projects\\project_pfe\\kelcvbajadivamanufaktur\\kelcvbajadivamanufaktur\\kelcvbajadivamanufaktur\\migrations\\20250830174436_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD952B36-E8EF-4C33-935E-A0059917CA8D}|KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur.csproj|solutionrelative:kelcvbajadivamanufaktur\\migrations\\20250830174436_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\Project_PFE\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\Migrations\\20250830174436_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KelCVBajaDivaManufaktur\\Migrations\\20250830174436_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/KelCVBajaDivaManufakturContext_95a820fa_a1f1_424a_ac3d_36c535344efa/True/SqlTable/dbo.Pengguna.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DD952B36-E8EF-4C33-935E-A0059917CA8D}|KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur.csproj|c:\\projects\\project_pfe\\kelcvbajadivamanufaktur\\kelcvbajadivamanufaktur\\kelcvbajadivamanufaktur\\data\\kelcvbajadivamanufakturcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,7 +33,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,7 +41,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "dbo.Pengguna [Data]",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/KelCVBajaDivaManufakturContext_95a820fa_a1f1_424a_ac3d_36c535344efa/True/SqlTable/dbo.Pengguna.sql",
               "ToolTip": "dbo.Pengguna [Data]",
@@ -51,13 +51,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "20250830174436_InitialCreate.cs",
               "DocumentMoniker": "C:\\Projects\\Project_PFE\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\Migrations\\20250830174436_InitialCreate.cs",
               "RelativeDocumentMoniker": "KelCVBajaDivaManufaktur\\Migrations\\20250830174436_InitialCreate.cs",
               "ToolTip": "C:\\Projects\\Project_PFE\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\Migrations\\20250830174436_InitialCreate.cs",
               "RelativeToolTip": "KelCVBajaDivaManufaktur\\Migrations\\20250830174436_InitialCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAIwLMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-30T17:44:36.863Z",
               "EditorCaption": ""

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KelCVBajaDivaManufaktur")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+782bc5644851047137656b0c2b1eef90b0701072")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+033f1fb6f560f71a6035c35614742423ba7e310b")]
 [assembly: System.Reflection.AssemblyProductAttribute("KelCVBajaDivaManufaktur")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KelCVBajaDivaManufaktur")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

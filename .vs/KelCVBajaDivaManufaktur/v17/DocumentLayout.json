@@ -42,12 +42,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "dbo.Pengguna [Data]",
+              "Title": "dbo.Pengguna.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/KelCVBajaDivaManufakturContext_95a820fa_a1f1_424a_ac3d_36c535344efa/True/SqlTable/dbo.Pengguna.sql",
-              "ToolTip": "dbo.Pengguna [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/KelCVBajaDivaManufakturContext_95a820fa_a1f1_424a_ac3d_36c535344efa/True/SqlTable/dbo.Pengguna.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-08-30T17:46:23.24Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-30T17:46:23.24Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "KelCVBajaDivaManufaktur\\Data\\KelCVBajaDivaManufakturContext.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAowCgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-30T17:41:30.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-30T17:41:30.004Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "KelCVBajaDivaManufaktur\\Models\\PesanBB.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAowBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-30T17:39:46.969Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-30T17:39:46.969Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "KelCVBajaDivaManufaktur\\Migrations\\20250830173726_FinalCreate.cs",
               "ViewState": "AgIAAIoAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-30T17:37:26.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-30T17:37:26.624Z"
             },
             {
               "$type": "Document",
@@ -111,8 +107,7 @@
               "RelativeToolTip": "KelCVBajaDivaManufaktur\\Migrations\\20250830173445_NewInitialCreate.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-30T17:34:45.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-30T17:34:45.819Z"
             }
           ]
         }
