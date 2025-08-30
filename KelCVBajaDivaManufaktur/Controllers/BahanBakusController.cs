@@ -27,8 +27,8 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 return Problem("Entity set 'KelCVBajaDivaManufakturContext.BahanBaku'  is null.");
             }
 
-            var bahanbakus = from m in _context.BahanBaku
-                         select m;
+            var bahanbakus = from m in _context.BahanBaku.Include(d => d.Supplier)
+                             select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -38,6 +38,26 @@ namespace KelCVBajaDivaManufaktur.Controllers
             return View(await bahanbakus.ToListAsync());
         }
 
+        [HttpPost]
+        public async Task<IActionResult> TambahStok(int id)
+        {
+            var bahanBaku = await _context.BahanBaku.FindAsync(id);
+
+            if (bahanBaku == null)
+            {
+                return NotFound();
+            }
+
+            // Contoh penambahan stok (di sini stok ditambah satu)
+            bahanBaku.Stok += 1;
+
+            _context.Update(bahanBaku);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
         // GET: BahanBakus/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -46,7 +66,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 return NotFound();
             }
 
-            var bahanBaku = await _context.BahanBaku
+            var bahanBaku = await _context.BahanBaku.Include(d => d.Supplier)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (bahanBaku == null)
             {
@@ -59,6 +79,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
         // GET: BahanBakus/Create
         public IActionResult Create()
         {
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "Id", "NamaSupplier");
             return View();
         }
 
@@ -67,7 +88,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NamaBahan,Stok,Satuan,Supplier")] BahanBaku bahanBaku)
+        public async Task<IActionResult> Create([Bind("Id,NamaBahan,Stok,Satuan,SupplierId")] BahanBaku bahanBaku)
         {
             if (ModelState.IsValid)
             {
@@ -75,6 +96,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "Id", "NamaSupplier", bahanBaku.SupplierId);
             return View(bahanBaku);
         }
 
@@ -91,6 +113,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
             {
                 return NotFound();
             }
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "Id", "NamaSupplier");
             return View(bahanBaku);
         }
 
@@ -99,7 +122,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NamaBahan,Stok,Satuan,Supplier")] BahanBaku bahanBaku)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NamaBahan,Stok,Satuan,SupplierId")] BahanBaku bahanBaku)
         {
             if (id != bahanBaku.Id)
             {
@@ -126,6 +149,8 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+
+            ViewData["SupplierId"] = new SelectList(_context.Supplier, "Id", "NamaSupplier", bahanBaku.SupplierId);
             return View(bahanBaku);
         }
 

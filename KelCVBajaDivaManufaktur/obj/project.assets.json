@@ -11209,19 +11209,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ZULKARNAIN\\.nuget\\packages\\": {}
+    "C:\\Users\\desktop\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur.csproj",
+      "projectUniqueName": "C:\\Projects\\Project_PFE\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur.csproj",
       "projectName": "KelCVBajaDivaManufaktur",
-      "projectPath": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur.csproj",
-      "packagesPath": "C:\\Users\\ZULKARNAIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\obj\\",
+      "projectPath": "C:\\Projects\\Project_PFE\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur.csproj",
+      "packagesPath": "C:\\Users\\desktop\\.nuget\\packages\\",
+      "outputPath": "C:\\Projects\\Project_PFE\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ZULKARNAIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\desktop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11241,7 +11246,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net7.0": {
@@ -11281,7 +11292,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

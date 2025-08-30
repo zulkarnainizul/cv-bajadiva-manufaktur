@@ -1,4 +1,5 @@
-﻿@model IEnumerable<KelCVBajaDivaManufaktur.Models.Produk>
+﻿@inject IHttpContextAccessor httpContextaccessor
+@model IEnumerable<KelCVBajaDivaManufaktur.Models.Produk>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,75 +10,140 @@
         overflow-y: auto;
     }
 </style>
-<div class="card">
-    <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center">
-            <h4 class="card-title">Data Produk</h4>
-            <a asp-action="Create" class="btn btn-success">
-                <i class="fa fa-plus"></i> Tambah
-            </a>
-        </div>
-        <p class="card-description">Daftar Produk Tersedia</p>
-        <form asp-controller="Produks" asp-action="Index" method="get">
-
-        <div class="input-group" >
-            <div class="input-group-prepend hover-cursor" id="search">
-                <span class="input-group-text" id="search">
-                    <i class="icon-search"></i>
-                </span>
+      @if (httpContextaccessor.HttpContext.Request.Cookies["hak_akses"] == "Admin")
+{
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="card-title">Data Produk</h4>
+                <a asp-action="Create" class="btn btn-success">
+                    <i class="fa fa-plus"></i> Tambah
+                </a>
             </div>
-                <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
-        </div>
-        </form>
+            <p class="card-description">Daftar Produk Tersedia</p>
+
+            <form asp-controller="Produks" asp-action="Index" method="get">
+
+                <div class="input-group" >
+                    <div class="input-group-prepend hover-cursor" id="search">
+                        <span class="input-group-text" id="search">
+                            <i class="icon-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
+                </div>
+            </form>
 
 
-        <div class="table-responsive mt-3 table-container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>@Html.DisplayNameFor(model => model.NamaProduk)</th>
-                        <th>@Html.DisplayNameFor(model => model.GambarProduk)</th>
-                        <th>@Html.DisplayNameFor(model => model.Stok)</th>
-                        <th>@Html.DisplayNameFor(model => model.Harga)</th>
-                        <th>@Html.DisplayNameFor(model => model.Kategori)</th>
-                        <th>@Html.DisplayNameFor(model => model.Deskripsi)</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{
-                        int rowNumber = 1; // Inisialisasi nomor baris
-                    }
-                    @foreach (var item in Model)
-                    {
+            <div class="table-responsive mt-3 table-container">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>@rowNumber</td>
-                            <td>@Html.DisplayFor(modelItem => item.NamaProduk)</td>
-                            <td>
-                                <img src="~/images/logo2.jpeg" alt="Gambar Produk" class="img-thumbnail" style="width: 60px; height: 60px; " />
-                            </td>
-                            <td>@Html.DisplayFor(modelItem => item.Stok)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Harga)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Kategori)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Deskripsi)</td>
-                            <td class="d-flex">
-                                <form asp-action="Edit" asp-route-id="@item.Id" method="get">
-                                    <button type="submit" class="btn btn-warning btn-sm mr-1" title="Edit">Edit</button>
-                                </form>
-                                <form asp-action="Details" asp-route-id="@item.Id" method="get">
-                                    <button type="submit" class="btn btn-info btn-sm mr-1" title="Details">Details</button>
-                                </form>
-                                <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">Delete</button>
-                                </form>
-                            </td>
+                            <th>No</th>
+                            <th>Gambar Produk</th>
+                            <th>Nama Produk</th>
+                            <th>@Html.DisplayNameFor(model => model.Stok)</th>
+                            <th>@Html.DisplayNameFor(model => model.Harga)</th>
+                            <th>@Html.DisplayNameFor(model => model.Kategori)</th>
+                            <th>@Html.DisplayNameFor(model => model.Deskripsi)</th>
+                            <th>Actions</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int rowNumber = 1; // Inisialisasi nomor baris
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@rowNumber</td>
+                                <td>
+                                    <img src="../images/@Html.DisplayFor(modelItem => item.GambarProduk)" style="width: 100px; height: 100px;"/>
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.NamaProduk)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Stok) Unit</td>
+                                <td>Rp. @Html.DisplayFor(modelItem => item.Harga)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Kategori)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Deskripsi)</td>
+                                <td>
+                                    <form asp-action="Edit" asp-route-id="@item.Id" method="get">
+                                        <button type="submit" class="btn btn-warning btn-sm btn-block" title="Edit">Edit</button>
+                                    </form>
+                                    <form asp-action="Details" asp-route-id="@item.Id" method="get">
+                                        <button type="submit" class="btn btn-info btn-sm btn-block" title="Details">Details</button>
+                                    </form>
+                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                        <button type="submit" class="btn btn-danger btn-sm btn-block" title="Delete">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
 
-                        rowNumber++;
-                    }
-                </tbody>
-            </table>
+                            rowNumber++;
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+}
+else
+{
+
+    <div class="card">
+        <div class="card-body">
+            <p class="card-title">Daftar Produk Tersedia</p>
+
+            <form asp-controller="Produks" asp-action="Index" method="get">
+
+                <div class="input-group">
+                    <div class="input-group-prepend hover-cursor" id="search">
+                        <span class="input-group-text" id="search">
+                            <i class="icon-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
+                </div>
+            </form>
+
+
+            <div class="table-responsive mt-3 table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Gambar Produk</th>
+                            <th>Nama Produk</th>
+                            <th>@Html.DisplayNameFor(model => model.Stok)</th>
+                            <th>Rp. @Html.DisplayNameFor(model => model.Harga)</th>
+                            <th>@Html.DisplayNameFor(model => model.Kategori)</th>
+                            <th>@Html.DisplayNameFor(model => model.Deskripsi)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int rowNumber = 1; // Inisialisasi nomor baris
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@rowNumber</td>
+                                <td>
+                                    <img src="../images/@Html.DisplayFor(modelItem => item.GambarProduk)" style="width: 100px; height: 100px;" />
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.NamaProduk)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Stok)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Harga)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Kategori)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Deskripsi)</td>
+                     
+                            </tr>
+
+                            rowNumber++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+}

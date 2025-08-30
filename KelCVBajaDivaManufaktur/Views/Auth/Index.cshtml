@@ -5,6 +5,7 @@
     Layout = null; // Mengatur Layout menjadi null
     ViewData["Title"] = "Login";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,48 +28,45 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="~/images/logo.jpg" />
 </head>
-
 <body>
 
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
-            <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div class="content-wrapper d-flex align-items-center auth">
                 <div class="row w-100 mx-0">
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo text-center">
-                                <img src="../../images/logo2.jpeg" alt="logo" class="mx-auto d-block">
+                                <img src="../../images/logo2.jpeg" alt="logo" style="width: 200px; height: auto;">
                             </div>
 
-                            <h4>Hello! let's get started</h4>
-                            <h6 class="font-weight-light">Sign in to continue.</h6>
+                            <h2 class="text-center">Login</h2>
+                            <h4 class="font-weight-light text-center">Sign in to continue.</h4>
                             <form class="pt-3" asp-controller="Auth" asp-action="Login" id="Login">
                                 <div class="form-group">
-                                    <label for="username">
-                                        <span>Username</span>
-                                        <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="Username" required />
-                                    </label>
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="Username" required />
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">
-                                        <span>Password</span>
-                                        <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password" required />
-                                    </label>
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password" required />
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
+                                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Sign In</button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- content-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
-
+    @if (TempData["Message"] != null)
+    {
+        <script>
+            alert('@TempData["Message"]');
+        </script>
+    }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

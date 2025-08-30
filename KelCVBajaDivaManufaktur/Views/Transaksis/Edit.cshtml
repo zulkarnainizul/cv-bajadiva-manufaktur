@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Edit";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,71 +28,109 @@
 </head>
 
 <body>
-    <body>
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Halaman Edit Transaksi</h4>
-                <p class="card-description">
-                    Edit Transaksi
-                </p>
-                <form asp-action="Edit" class="forms-sample">
-                    <div class="form-group">
-                        <label asp-for="NamaPelanggan">Nama Pelanggan</label>
-                        <input asp-for="NamaPelanggan" type="text" class="form-control" id="NamaPelanggan" placeholder="Masukkan Nama Pelanggan" required>
-                        <span asp-validation-for="NamaPelanggan" class="text-danger"></span>
-                    </div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Halaman Edit Transaksi</h4>
+            <p class="card-description">
+                Edit Transaksi
+            </p>
+            <form asp-action="Edit" class="forms-sample">
+                <div class="form-group">
+                    <label asp-for="NamaPelanggan">Nama Pelanggan</label>
+                    <input asp-for="NamaPelanggan" type="text" class="form-control" id="NamaPelanggan" placeholder="Masukkan Nama Pelanggan" required>
+                    <span asp-validation-for="NamaPelanggan" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProdukId" class="control-label">Produk</label>
+                    <select asp-for="ProdukId" class="form-control" asp-items="ViewBag.ProdukId">
+                        <option value="">Select Produk</option>
+                    </select>
+                </div>
 
-                    <div class="form-group">
-                        <label asp-for="NamaMenu">Nama Produk</label>
-                        <input asp-for="NamaMenu" type="text" class="form-control" id="NamaMenu" placeholder="Masukkan Nama Menu" required>
-                        <span asp-validation-for="NamaMenu" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="TanggalBeli">Tanggal Beli</label>
+                    @{
+                        DateTime currentDateTime = ViewBag.CurrentDateTime != null ? (DateTime)ViewBag.CurrentDateTime : DateTime.Now;
+                        string formattedDateTime = currentDateTime.ToString("yyyy-MM-ddTHH:mm");
+                    }
+                    <input asp-for="TanggalBeli" type="datetime-local" class="form-control" id="TanggalBeli" required
+                           value="@formattedDateTime">
+                    <span asp-validation-for="TanggalBeli" class="text-danger"></span>
+                </div>
 
-                    <div class="form-group">
-                        <label asp-for="TanggalBeli">Tanggal Beli</label>
-                        <input asp-for="TanggalBeli" type="date" class="form-control" id="TanggalBeli" placeholder="Masukkan Tanggal Beli" required>
-                        <span asp-validation-for="TanggalBeli" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="Jumlah">Jumlah</label>
+                    <input asp-for="Jumlah" type="number" class="form-control" id="Jumlah" placeholder="Masukkan Jumlah" required>
+                    <span asp-validation-for="Jumlah" class="text-danger"></span>
+                </div>
 
-                    <div class="form-group">
-                        <label asp-for="Jumlah">Jumlah</label>
-                        <input asp-for="Jumlah" type="number" class="form-control" id="Jumlah" placeholder="Masukkan Jumlah" required>
-                        <span asp-validation-for="Jumlah" class="text-danger"></span>
-                    </div>
 
-                    <div class="form-group">
-                        <label asp-for="TotalBayar">Total Bayar</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-primary text-white">Rp.</span>
-                            </div>
-                            <input asp-for="TotalBayar" type="number" class="form-control" id="TotalBayar" placeholder="Masukkan Total Bayar" required>
-                            <div class="input-group-append">
-                                <span class="input-group-text">.00</span>
-                            </div>
+                <div class="form-group">
+                    <label asp-for="TotalBayar">Total Bayar</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-white">Rp.</span>
                         </div>
-                        <span asp-validation-for="TotalBayar" class="text-danger"></span>
+                        <input asp-for="TotalBayar" type="number" class="form-control" id="TotalBayar"
+                               placeholder="Masukkan Total Bayar" required readonly>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
                     </div>
+                    <span asp-validation-for="TotalBayar" class="text-danger"></span>
+                </div>
 
-                    <div class="form-group">
-                        <label asp-for="CaraBayar">Cara Bayar</label>
-                        <select asp-for="CaraBayar" class="form-control" id="CaraBayar">
-                            <option value="Cash">Cash</option>
-                            <option value="Transfer">Transfer</option>
-                        </select>
-                        <span asp-validation-for="CaraBayar" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label asp-for="CaraBayar">Cara Bayar</label>
+                    <select asp-for="CaraBayar" class="form-control" id="CaraBayar">
+                        <option value="Cash">Cash</option>
+                        <option value="Transfer">Transfer</option>
+                    </select>
+                    <span asp-validation-for="CaraBayar" class="text-danger"></span>
+                </div>
 
-                    <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-                    <button asp-action="Index" class="btn btn-light">Cancel</button>
-                </form>
-            </div>
+                <button type="submit" class="btn btn-primary mr-2">Simpan</button>
+                <a asp-action="Index" class="btn btn-light">Cancel</a>
+            </form>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const jumlahInput = document.getElementById('Jumlah');
+                    const produkSelect = document.getElementById('ProdukId');
+                    const totalBayarInput = document.getElementById('TotalBayar');
+                    const tanggalBeliInput = document.getElementById('TanggalBeli');
+                    const hargaData = JSON.parse('@Html.Raw(Json.Serialize(ViewBag.HargaData))');
+
+                    // Event listeners for changes in Jumlah and Produk
+                    jumlahInput.addEventListener('input', calculateTotal);
+                    produkSelect.addEventListener('change', calculateTotal);
+
+                    // Set the current date, time, and minute for TanggalBeli input
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toISOString().split('T')[0];
+                    const formattedTime = currentDate.toTimeString().split(' ')[0];
+                    tanggalBeliInput.value = `${formattedDate} ${formattedTime}`;
+
+                    function calculateTotal() {
+                        const jumlah = parseInt(jumlahInput.value) || 0;
+                        const selectedProdukId = produkSelect.value;
+                        const harga = hargaData[selectedProdukId] || 0;
+
+                        const totalBayar = jumlah * harga;
+                        totalBayarInput.value = totalBayar.toFixed(2); // Format the total to two decimal places
+                    }
+
+                    // Initialize total calculation
+                    calculateTotal();
+                });
+            </script>
         </div>
-    </body>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 
 </body>
 </html>

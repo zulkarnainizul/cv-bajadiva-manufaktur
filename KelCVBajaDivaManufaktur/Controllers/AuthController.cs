@@ -35,7 +35,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
             var user = await _context.Pengguna
                 .FirstOrDefaultAsync(m => m.Username == username);
 
-            if (user.Username == username)
+            if (user!=null)
             {
                 if (user.Password == password)
                 {
@@ -53,21 +53,20 @@ namespace KelCVBajaDivaManufaktur.Controllers
                     else
                     {
                         Response.Cookies.Append("hak_akses", "Supplier", options);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "PesanBBs");
                     }
                 }
                 else
                 {
                     TempData["Message"] = "Password tidak sesuai!";
-                    return RedirectToAction("Index", "Auth");
                 }
             }
             else
             {
                 TempData["Message"] = "Username tidak sesuai!";
-                return RedirectToAction("Index", "Auth");
-                
             }
+
+            return RedirectToAction("Index", "Auth");
         }
 
         public IActionResult Logout()

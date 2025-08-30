@@ -1,10 +1,13 @@
 ﻿@model KelCVBajaDivaManufaktur.Models.Transaksi
 
 @{
+    Layout = "_layout";
     ViewData["Title"] = "Create";
 }
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,16 +42,21 @@
                     <input asp-for="NamaPelanggan" type="text" class="form-control" id="NamaPelanggan" placeholder="Masukkan Nama Pelanggan" required>
                     <span asp-validation-for="NamaPelanggan" class="text-danger"></span>
                 </div>
-
                 <div class="form-group">
-                    <label asp-for="NamaMenu">Nama Produk</label>
-                    <input asp-for="NamaMenu" type="text" class="form-control" id="NamaMenu" placeholder="Masukkan Nama Menu" required>
-                    <span asp-validation-for="NamaMenu" class="text-danger"></span>
+                    <label asp-for="ProdukId" class="control-label">Produk</label>
+                    <select asp-for="ProdukId" class="form-control" asp-items="ViewBag.ProdukId">
+                        <option value="">Select Produk</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="TanggalBeli">Tanggal Beli</label>
-                    <input asp-for="TanggalBeli" type="date" class="form-control" id="TanggalBeli" placeholder="Masukkan Tanggal Beli" required>
+                    @{
+                        DateTime currentDateTime = ViewBag.CurrentDateTime != null ? (DateTime)ViewBag.CurrentDateTime : DateTime.Now;
+                        string formattedDateTime = currentDateTime.ToString("yyyy-MM-ddTHH:mm");
+                    }
+                    <input asp-for="TanggalBeli" type="datetime-local" class="form-control" id="TanggalBeli" required
+                           value="@formattedDateTime">
                     <span asp-validation-for="TanggalBeli" class="text-danger"></span>
                 </div>
 
@@ -61,16 +69,17 @@
                 <div class="form-group">
                     <label asp-for="TotalBayar">Total Bayar</label>
                     <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text bg-primary text-white">Rp.</span>
-                      </div>
-                        <input asp-for="TotalBayar" type="number" class="form-control" id="TotalBayar" placeholder="Masukkan Total Bayar" required>
-                      <div class="input-group-append">
-                        <span class="input-group-text">.00</span>
-                      </div>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-white">Rp.</span>
+                        </div>
+                        <input asp-for="TotalBayar" type="number" class="form-control" id="TotalBayar"
+                               placeholder="Masukkan Total Bayar" required readonly>
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
                     </div>
                     <span asp-validation-for="TotalBayar" class="text-danger"></span>
-                  </div>
+                </div>
 
                 <div class="form-group">
                     <label asp-for="CaraBayar">Cara Bayar</label>
@@ -84,12 +93,50 @@
                 <button type="submit" class="btn btn-primary mr-2">Simpan</button>
                 <a asp-action="Index" class="btn btn-light">Cancel</a>
             </form>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const jumlahInput = document.getElementById('Jumlah');
+                    const produkSelect = document.getElementById('ProdukId');
+                    const totalBayarInput = document.getElementById('TotalBayar');
+                    const tanggalBeliInput = document.getElementById('TanggalBeli');
+                    const hargaData = JSON.parse('@Html.Raw(Json.Serialize(ViewBag.HargaData))');
+
+                    // Event listeners for changes in Jumlah and Produk
+                    jumlahInput.addEventListener('input', calculateTotal);
+                    produkSelect.addEventListener('change', calculateTotal);
+
+                    // Set the current date, time, and minute for TanggalBeli input
+                    const currentDate = new Date();
+                    const formattedDate = currentDate.toISOString().split('T')[0];
+                    const formattedTime = currentDate.toTimeString().split(' ')[0];
+                    tanggalBeliInput.value = `${formattedDate} ${formattedTime}`;
+
+                    function calculateTotal() {
+                        const jumlah = parseInt(jumlahInput.value) || 0;
+                        const selectedProdukId = produkSelect.value;
+                        const harga = hargaData[selectedProdukId] || 0;
+
+                        const totalBayar = jumlah * harga;
+                        totalBayarInput.value = totalBayar.toFixed(2); // Format the total to two decimal places
+                    }
+
+                    // Initialize total calculation
+                    calculateTotal();
+                });
+            </script>
+
+
+
         </div>
     </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
 
 </body>
+
 </html>

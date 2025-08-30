@@ -1,0 +1,93 @@
+﻿@inject IHttpContextAccessor httpContextaccessor
+@model IEnumerable<KelCVBajaDivaManufaktur.Models.PesanBB>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-md-12 grid-margin">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Halo Viranti, Yok Cek Pesanan Bahan Baku Sekarang</h3>
+                <h6 class="font-weight-normal mb-0">Yuk kesediaan bahan baku perusahaan!! <span class="text-primary"> Semoga hari ini ramai pelanggan.</span></h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div class="card">
+        <div class="card-body">
+            <p class="card-description">Daftar Pesanan Terbaru</p>
+
+            <form asp-controller="PesanBBs" asp-action="Index" method="get">
+
+                <div class="input-group" >
+                    <div class="input-group-prepend hover-cursor" id="search">
+                        <span class="input-group-text" id="search">
+                            <i class="icon-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
+                </div>
+            </form>
+
+
+        @if (Model.Any())
+        {
+            <div class="table-responsive mt-3 table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Pemesan</th>
+                            <th>Nama Bahan Baku</th>
+                            <th>Jumlah Stok</th>
+                            <th>Satuan</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int rowNumber = 1; // Inisialisasi nomor baris
+                        }
+                        @foreach (var item in Model.Where(m => m.Supplier.NamaSupplier == "PT. Texco"))
+                        {
+                            <tr>
+                                <td>@rowNumber</td>
+                                <td>CV Baja Diva Manufaktur</td>
+                                <td>@Html.DisplayFor(modelItem => item.BahanBaku.NamaBahan)</td>
+                                <td>@Html.DisplayFor(modelItem => item.StokBB)</td>
+                                <td>@Html.DisplayFor(modelItem => item.SatuanBB)</td>
+                                <td class="d-flex">
+                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" data-action="accept">
+                                        <button type="submit" class="btn btn-primary btn-sm mr-1" title="accept">
+                                            Terima
+                                        </button>
+                                    </form>
+                                    <form asp-action="Details" asp-route-id="@item.Id" method="get">
+                                        <button type="submit" class="btn btn-info btn-sm mr-1" title="Details">
+                                            Details
+                                        </button>
+                                    </form>
+                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" data-action="reject">
+                                        <button type="submit" class="btn btn-danger btn-sm" title="reject">
+                                            Tolak
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            rowNumber++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="text-center mt-3">
+                <p class="text-muted">Tidak ada pesanan.</p>
+            </div>
+        }
+        </div>
+    </div>
+

@@ -23,5 +23,23 @@ namespace KelCVBajaDivaManufaktur.Data
         public DbSet<KelCVBajaDivaManufaktur.Models.Supplier> Supplier { get; set; } = default!;
 
         public DbSet<KelCVBajaDivaManufaktur.Models.Transaksi> Transaksi { get; set; } = default!;
+
+        public DbSet<KelCVBajaDivaManufaktur.Models.PesanBB> PesanBB { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Mengatasi masalah "multiple cascade paths"
+            // Dengan mengatur relasi PesanBB ke Supplier agar tidak melakukan penghapusan otomatis.
+            modelBuilder.Entity<PesanBB>()
+                .HasOne(p => p.Supplier)
+                .WithMany()
+                .HasForeignKey(p => p.SupplierId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            // Memanggil implementasi dasar (penting)
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
+
 }

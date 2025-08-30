@@ -57,19 +57,16 @@
                         <option>keping</option>
                         <option>batang</option>
                         <option>gram</option>
+                        <option>kg</option>
+                        <option>m</option>
+                        <option>mm</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Supplier">Supplier</label>
-                    <select asp-for="Supplier" class="form-control">
-                        <option>Supplier A</option>
-                        <option>Supplier B</option>
-                        <option>Supplier C</option>
-                        <option>Supplier D</option>
-                    </select>
+                    <label asp-for="SupplierId" class="control-label">Supplier</label>
+                    <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.SupplierId"></select>
                 </div>
-
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <a asp-action="Index" class="btn btn-light">Kembali</a>
             </form>

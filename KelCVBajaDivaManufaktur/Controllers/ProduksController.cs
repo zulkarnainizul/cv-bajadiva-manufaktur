@@ -15,9 +15,10 @@ namespace KelCVBajaDivaManufaktur.Controllers
     {
         private readonly KelCVBajaDivaManufakturContext _context;
         private readonly IWebHostEnvironment _hostEnvironment;
-        public ProduksController(KelCVBajaDivaManufakturContext context)
+        public ProduksController(KelCVBajaDivaManufakturContext context, IWebHostEnvironment hc)
         {
             _context = context;
+            _hostEnvironment = hc;
         }
 
         // GET: Produks
@@ -38,7 +39,6 @@ namespace KelCVBajaDivaManufaktur.Controllers
 
             return View(await produks.ToListAsync());
         }
-
         // GET: Produks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -49,10 +49,14 @@ namespace KelCVBajaDivaManufaktur.Controllers
 
             var produk = await _context.Produk
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (produk == null)
             {
                 return NotFound();
             }
+
+            // Menambahkan informasi gambar ke ViewData
+            ViewData["ImagePath"] = Path.Combine("/images", produk.GambarProduk);
 
             return View(produk);
         }
@@ -68,38 +72,47 @@ namespace KelCVBajaDivaManufaktur.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NamaProduk,GambarProduk,Stok,Harga,Kategori,Deskripsi")] Produk produk, IFormFile GambarProduk)
+        public async Task<IActionResult> Create(ProductViewModel product1)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // Validasi model
             {
-                if (GambarProduk != null && GambarProduk.Length > 0)
+                String filename = "";
+                if (product1.photo != null)
                 {
-                    string wwwRootPath = _hostEnvironment.WebRootPath;
-                    string fileName = Path.GetFileNameWithoutExtension(GambarProduk.FileName);
-                    string extension = Path.GetExtension(GambarProduk.FileName);
-                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    string path = Path.Combine(wwwRootPath + "/Image/", fileName);
-
-                    using (var fileStream = new FileStream(path, FileMode.Create))
-                    {
-                        await GambarProduk.CopyToAsync(fileStream);
-                    }
-
-                    // Set nama file di model Produk
-                    produk.GambarProduk = fileName;
+                    String uploadfolder = Path.Combine(_hostEnvironment.WebRootPath, "images");
+                    filename = Guid.NewGuid().ToString() + "_" + product1.photo.FileName;
+                    String filepath = Path.Combine(uploadfolder, filename);
+                    product1.photo.CopyTo(new FileStream(filepath, FileMode.Create));
                 }
 
-                _context.Add(produk);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                Produk p = new Produk
+                {
+                    NamaProduk = product1.NamaProduk,
+                    GambarProduk = filename,
+                    Stok = product1.Stok,
+                    Harga = product1.Harga,
+                    Kategori = product1.Kategori,
+                    Deskripsi = product1.Deskripsi
+                };
+
+                _context.Produk.Add(p);
+                await _context.SaveChangesAsync(); // Menggunakan SaveChangesAsync()
+
+                ViewBag.Success = "Record added";
+
+                // Alihkan ke action Index
+                return RedirectToAction("Index");
             }
-            return View(produk);
+
+            // Jika model tidak valid, kembalikan ke view Create dengan model yang tidak valid
+            return View(product1);
         }
+
 
         // GET: Produks/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Produk == null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -117,7 +130,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NamaProduk,GambarProduk,Stok,Harga,Kategori,Deskripsi")] Produk produk)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NamaProduk,GambarProduk,Stok,Harga,Kategori,Deskripsi")] Produk produk, IFormFile photo)
         {
             if (id != produk.Id)
             {
@@ -128,6 +141,28 @@ namespace KelCVBajaDivaManufaktur.Controllers
             {
                 try
                 {
+                    String filename = produk.GambarProduk; // Simpan nama gambar lama
+
+                    if (photo != null)
+                    {
+                        String uploadfolder = Path.Combine(_hostEnvironment.WebRootPath, "images");
+                        filename = Guid.NewGuid().ToString() + "_" + photo.FileName;
+                        String filepath = Path.Combine(uploadfolder, filename);
+                        photo.CopyTo(new FileStream(filepath, FileMode.Create));
+
+                        // Hapus gambar lama jika berhasil mengunggah yang baru
+                        if (!string.IsNullOrEmpty(produk.GambarProduk))
+                        {
+                            String oldFilePath = Path.Combine(uploadfolder, produk.GambarProduk);
+                            if (System.IO.File.Exists(oldFilePath))
+                            {
+                                System.IO.File.Delete(oldFilePath);
+                            }
+                        }
+                    }
+
+                    produk.GambarProduk = filename;
+
                     _context.Update(produk);
                     await _context.SaveChangesAsync();
                 }
@@ -146,6 +181,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
             }
             return View(produk);
         }
+
 
         // GET: Produks/Delete/5
         public async Task<IActionResult> Delete(int? id)

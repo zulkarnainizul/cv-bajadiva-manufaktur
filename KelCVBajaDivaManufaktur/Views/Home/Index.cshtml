@@ -1,73 +1,321 @@
-﻿@{
+﻿@inject IHttpContextAccessor httpContextaccessor
+@model KelCVBajaDivaManufaktur.Models.DashboardViewModel
+
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div>
-    <div class="d-flex">
-        <div class="d-flex bg-white rounded shadow w-25 px-3 py-2 align-content-center">
-            <a asp-area="" asp-controller="Produks" asp-action="Index" class="d-flex align-items-center text-decoration-none">
-                <div class="w-40 h-40 mr-3">
-                    <img src="~/images/shopbag.png" alt="Shop Bag" class="img-fluid" />
+      @if (httpContextaccessor.HttpContext.Request.Cookies["hak_akses"] == "Admin")
+{
+    <div>
+        <div class="d-flex">
+            <div class="d-flex bg-white rounded shadow w-25 px-3 py-2 align-content-center">
+                <a asp-area="" asp-controller="Produks" asp-action="Index" class="d-flex align-items-center text-decoration-none">
+                    <div class="w-40 h-40 mr-3">
+                        <img src="~/images/shopbag.png" alt="Shop Bag" class="img-fluid" />
+                    </div>
+                    <div>
+                        <h6 class="mb-1">Jumlah Produk</h6>
+                        <h6>@(Model?.JumlahProduk ?? 0)</h6>
+                    </div>
+                </a>
+            </div>
+
+            <div class="d-flex bg-white rounded shadow w-25 px-3 py-2 align-content-center ml-3">
+                <a asp-area="" asp-controller="BahanBakus" asp-action="Index" class="d-flex align-items-center text-decoration-none">
+                    <div class="w-40 h-40 mr-3">
+                        <img src="~/images/market.png" class="" />
+                    </div>
+                    <div class="mt-2">
+                        <h6>Jumlah Bahan Baku</h6>
+                        <h6>@(Model?.JumlahBahanBaku ?? 0)</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="d-flex bg-white rounded shadow w-25 px-3 py-2 align-content-center ml-3">
+                <a asp-area="" asp-controller="Suppliers" asp-action="Index" class="d-flex align-items-center text-decoration-none">
+                    <div class="w-40 h-40 mr-3">
+                        <img src="~/images/papan.png" class="" />
+                    </div>
+                    <div class="mt-2">
+                        <h6>Jumlah Supplier</h6>
+                        <h6>@(Model?.JumlahSupplier ?? 0)</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="d-flex bg-white rounded shadow w-25 px-3 py-2 align-content-center ml-3">
+                <a asp-area="" asp-controller="Transaksis" asp-action="Index" class="d-flex align-items-center text-decoration-none">
+                    <div class="w-40 h-40 mr-3">
+                        <img src="~/images/list.png" class="" />
+                    </div>
+                    <div class="mt-2">
+                        <h6>Total Transaksi</h6>
+                        <h6>@(Model?.JumlahTransaksi ?? 0)</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <br />
+
+        <div class="d-flex bg-white shadow rounded">
+            <div class="card-body">
+
+                <!-- Chart 1: Total Bayar Sum by Month -->
+                <div class="d-flex ">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title">Total Transaksi Per Bulan</h4>
+                        </div>
+                        <p class="card-title">Berikut grafik total pembayaran per bulannya:</p>
+                        <canvas id="totalBayar-chart" width="585" height="500" style="display: block; height: 205px; width: 410px;" class="chartjs-render-monitor"></canvas>
+                    </div>
+
+                    <!-- Chart 2: Total Sales of Products (Pie Chart) -->
+                    <div class="col-md-6 mt-3">
+                        <div class="d-flex justify-content-between">
+                            <h4 class="card-title">Total Penjualan Berdasarkan Produk</h4>
+                        </div>
+                        <p class="card-title">Berikut adalah produk yang terjual dan total bayarnya:</p>
+                        <canvas id="totalSales-pie-chart" width="615" height="307" style="display: block; height: 205px; width: 410px;" class="chartjs-render-monitor"></canvas>
+                    </div>
+
                 </div>
-                <div>
-                    <h6 class="mb-1">Jumlah Produk</h6>
-                    <h6>@(Model?.JumlahProduk ?? 0)</h6>
+            </div>
+        </div>
+        <br />
+        <div class="card shadow">        
+            <div class="card-body">
+
+                <h4> Daftar Transaksi</h4>
+
+                <div class="table-responsive mt-3 table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Pembeli</th>
+                                <th>Produk</th>
+                                <th>Tanggal Beli</th>
+                                <th>Jumlah</th>
+                                <th>Total Bayar</th>
+                                <th>Cara Bayar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int rowNumber = 1; // Inisialisasi nomor baris
+                            }
+                            @foreach (var item in Model.TransaksiList)
+                            {
+                                <tr>
+                                    <td>@rowNumber</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NamaPelanggan)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Produk.NamaProduk)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TanggalBeli)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Jumlah) Unit</td>
+                                    <td>Rp. @Html.DisplayFor(modelItem => item.TotalBayar)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.CaraBayar)</td>
+                                    <td class="d-flex">
+                                </tr>
+                                rowNumber++;
+                            }
+                        </tbody>
+                    </table>
                 </div>
-            </a>
+            </div>
+        </div>
+        <br/>
+    </div>
+}
+else if (httpContextaccessor.HttpContext.Request.Cookies["hak_akses"] == "Karyawan")
+{
+    <div class="row">
+        <div class="col-md-12 grid-margin">
+            <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                    <h3 class="font-weight-bold">Halo Yunisa, Gimana Kabarnya?</h3>
+                    <h6 class="font-weight-normal mb-0">Yuk cek penjualan hari ini!! <span class="text-primary"> Semoga hari ini ramai pelanggan.</span></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 grid-margin stretch-card">
+            <div class="card tale-bg">
+                <div class="card-people mt-auto">
+                    <img src="images/dashboard/people.svg" alt="people">
+                    <div class="weather-info">
+                        <div class="d-flex">
+                            <div>
+                                <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                            </div>
+                            <div class="ml-2">
+                                <h4 class="location font-weight-normal">Pekanbaru</h4>
+                                <h6 class="font-weight-normal">Indonesia</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="d-flex bg-white rounded shadow w-25 px-3 py-2 align-content-center ml-3">
-            <a asp-area="" asp-controller="BahanBakus" asp-action="Index" class="d-flex align-items-center text-decoration-none">
-                <div class="w-40 h-40 mr-3">
-                <img src="~/images/market.png" class="" />
-            </div>
-            <div class="mt-2">
-                <h6>Jumlah Bahan Baku</h6>
-                <h6>@(Model?.JumlahBahanBaku ?? 0)</h6>
-            </div>
-            </a>
-        </div>
-        <div class="d-flex bg-white rounded shadow w-25 px-3 py-2 align-content-center ml-3">
-            <a asp-area="" asp-controller="Suppliers" asp-action="Index" class="d-flex align-items-center text-decoration-none">
-                <div class="w-40 h-40 mr-3">
-                <img src="~/images/papan.png" class="" />
-            </div>
-            <div class="mt-2">
-                <h6>Jumlah Supplier</h6>
-                <h6>@(Model?.JumlahSupplier ?? 0)</h6>
-            </div>
-            </a>
-        </div>
-        <div class="d-flex bg-white rounded shadow w-25 px-3 py-2 align-content-center ml-3">
-            <a asp-area="" asp-controller="Transaksis" asp-action="Index" class="d-flex align-items-center text-decoration-none">
-                <div class="w-40 h-40 mr-3">
-                <img src="~/images/list.png" class="" />
-            </div>
-            <div class="mt-2">
-                <h6>Total Transaksi</h6>
-                <h6>@(Model?.JumlahTransaksi ?? 0)</h6>
-            </div>
-            </a>
-        </div>
-    </div>
-    <br/>
-    <div class="d-flex">
-        <div class="d-flex bg-white rounded shadow ">
-            <div class="card-body">
-                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                <div class="d-flex justify-content-between">
-                    <p class="card-title">Sales Report</p>
-                    <a href="#" class="text-info">View all</a>
+        <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+                <div class="col-md-6 grid-margin">
+                    <div class="d-flex bg-white rounded shadow px-2 py-3 align-content-center ml-3">
+                        <a asp-area="" asp-controller="Produks" asp-action="Index" class="d-flex align-items-center text-decoration-none">
+                            <div class="w-40 h-40 mr-3">
+                                <img src="~/images/shopbag.png" alt="Shop Bag" class="img-fluid" />
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Jumlah Produk</h6>
+                                <h6>@(Model?.JumlahProduk ?? 0)</h6>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <p class="font-weight-500">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
-                <div id="sales-legend" class="chartjs-legend mt-4 mb-2"><ul class="1-legend"><li><span style="background-color: rgb(152, 189, 255);"></span>Offline Sales</li><li><span style="background-color: rgb(75, 73, 172);"></span>Online Sales</li></ul></div>
-                <canvas id="sales-chart" width="585" height="292" style="display: block; height: 195px; width: 390px;" class="chartjs-render-monitor"></canvas>
+
+                <div class="col-md-6 grid-margin">
+                    <div class="d-flex bg-white rounded shadow px-2 py-2 align-content-center ml-3">
+                        <a asp-area="" asp-controller="Transaksis" asp-action="Index" class="d-flex align-items-center text-decoration-none">
+                            <div class="w-40 h-40 mr-3">
+                                <img src="~/images/list.png" class="" />
+                            </div>
+                            <div class="mt-2">
+                                <h6>Total Transaksi</h6>
+                                <h6>@(Model?.JumlahTransaksi ?? 0)</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6 mt-3">
-                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                <canvas id="north-america-chart" width="615" height="307" style="display: block; height: 205px; width: 410px;" class="chartjs-render-monitor"></canvas>
-                <div id="north-america-legend"><div class="report-chart"><div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: #4B49AC"></div><p class="mb-0">Offline sales</p></div><p class="mb-0">88333</p></div><div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: #FFC100"></div><p class="mb-0">Online sales</p></div><p class="mb-0">66093</p></div><div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: #248AFD"></div><p class="mb-0">Returns</p></div><p class="mb-0">39836</p></div></div></div>
+            <div class="row">
+                <div class="card-body bg-white shadow rounded">
+                    <div class="d-flex justify-content-between">
+                        <h4 class="card-title">Total Transaksi Per Bulan</h4>
+                    </div>
+                    <canvas id="totalBayar-chart" width="400" height="150" style="display: block; height: 205px; width: 400px;" class="chartjs-render-monitor"></canvas>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
+
+        <br />
+        <div class="card shadow">
+            <div class="card-body">
+
+                <h4> Daftar Transaksi</h4>
+
+                <div class="table-responsive mt-3 table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Pembeli</th>
+                                <th>Produk</th>
+                                <th>Tanggal Beli</th>
+                                <th>Jumlah</th>
+                                <th>Total Bayar</th>
+                                <th>Cara Bayar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int rowNumber = 1; // Inisialisasi nomor baris
+                            }
+                            @foreach (var item in Model.TransaksiList)
+                            {
+                                <tr>
+                                    <td>@rowNumber</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NamaPelanggan)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Produk.NamaProduk)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TanggalBeli)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Jumlah) Unit</td>
+                                    <td>Rp. @Html.DisplayFor(modelItem => item.TotalBayar)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.CaraBayar)</td>
+                                    <td class="d-flex">
+                                </tr>
+                                rowNumber++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+}
+else
+{
+    <html>
+    Halaman Dashboard Supplier
+    </html>
+
+}
+
+
+
+    @section scripts {
+        <script>
+            // Chart 1: Total Bayar by Month
+            var totalBayarCtx = document.getElementById('totalBayar-chart').getContext('2d');
+            var totalBayarChartData = {
+            labels: ['Januari', 'Februari', 'Maret' /* ... */],
+                datasets: [{
+                    label: 'Total Bayar',
+                    data: @Html.Raw(Json.Serialize(Model.TotalBayarSumByMonth)),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            };
+
+            var totalBayarChart = new Chart(totalBayarCtx, {
+                type: 'bar',
+                data: totalBayarChartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Chart 2: Total Sales of Products (Pie Chart)
+            var totalSalesPieCtx = document.getElementById('totalSales-pie-chart').getContext('2d');
+            var totalSalesPieChartData = {
+                labels: @Html.Raw(Json.Serialize(Model.ProductSales.ProductNames)),
+                datasets: [{
+                    data: @Html.Raw(Json.Serialize(Model.ProductSales.TotalSales)),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)',
+                        'rgba(255, 99, 132, 0.5)' // Add more colors if needed
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)' // Add more colors if needed
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            var totalSalesPieChart = new Chart(totalSalesPieCtx, {
+                type: 'pie',
+                data: totalSalesPieChartData
+            });
+        </script>
+    }

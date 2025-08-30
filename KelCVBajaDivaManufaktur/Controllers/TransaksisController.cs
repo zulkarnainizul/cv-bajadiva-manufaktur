@@ -19,21 +19,6 @@ namespace KelCVBajaDivaManufaktur.Controllers
             _context = context;
         }
 
-        public IActionResult Dashboard()
-        {
-            // Ambil data total penjualan per bulan dari database
-            var dataPenjualan = _context.Transaksi
-                .GroupBy(t => new { t.TanggalBeli.Year, t.TanggalBeli.Month })
-                .Select(g => new { Year = g.Key.Year, Month = g.Key.Month, TotalPenjualan = g.Sum(t => t.TotalBayar) })
-                .OrderBy(g => g.Year)
-                .ThenBy(g => g.Month)
-                .ToList();
-
-            // Kirim data ke view
-            return View(dataPenjualan);
-        }
-
-
         // GET: Transaksis
         public async Task<IActionResult> Index(string searchString)
         {
@@ -42,7 +27,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 return Problem("Entity set 'KelCVBajaDivaManufakturContext.Transaksi'  is null.");
             }
 
-            var transaksis = from m in _context.Transaksi
+            var transaksis = from m in _context.Transaksi.Include(d => d.Produk)
                              select m;
 
             if (!String.IsNullOrEmpty(searchString))
@@ -61,7 +46,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 return NotFound();
             }
 
-            var transaksi = await _context.Transaksi
+            var transaksi = await _context.Transaksi.Include(d => d.Produk)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (transaksi == null)
             {
@@ -74,6 +59,8 @@ namespace KelCVBajaDivaManufaktur.Controllers
         // GET: Transaksis/Create
         public IActionResult Create()
         {
+            ViewBag.HargaData = _context.Produk.ToDictionary(p => p.Id.ToString(), p => p.Harga);
+            ViewData["ProdukId"] = new SelectList(_context.Produk, "Id", "NamaProduk");
             return View();
         }
 
@@ -82,7 +69,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NamaPelanggan,NamaMenu,TanggalBeli,Jumlah,TotalBayar,CaraBayar")] Transaksi transaksi)
+        public async Task<IActionResult> Create([Bind("Id,NamaPelanggan,ProdukId,TanggalBeli,Jumlah,TotalBayar,CaraBayar")] Transaksi transaksi)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +77,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ProdukId"] = new SelectList(_context.Produk, "Id", "NamaProduk", transaksi.ProdukId);
             return View(transaksi);
         }
 
@@ -106,6 +94,8 @@ namespace KelCVBajaDivaManufaktur.Controllers
             {
                 return NotFound();
             }
+            ViewBag.HargaData = _context.Produk.ToDictionary(p => p.Id.ToString(), p => p.Harga);
+            ViewData["ProdukId"] = new SelectList(_context.Produk, "Id", "NamaProduk");
             return View(transaksi);
         }
 
@@ -114,8 +104,10 @@ namespace KelCVBajaDivaManufaktur.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NamaPelanggan,NamaMenu,TanggalBeli,Jumlah,TotalBayar,CaraBayar")] Transaksi transaksi)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NamaPelanggan,ProdukId,TanggalBeli,Jumlah,TotalBayar,CaraBayar")] Transaksi transaksi)
         {
+            ViewBag.HargaData = _context.Produk.ToDictionary(p => p.Id.ToString(), p => p.Harga);
+
             if (id != transaksi.Id)
             {
                 return NotFound();
@@ -141,6 +133,7 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ProdukId"] = new SelectList(_context.Produk, "Id", "NamaProduk", transaksi.ProdukId);
             return View(transaksi);
         }
 

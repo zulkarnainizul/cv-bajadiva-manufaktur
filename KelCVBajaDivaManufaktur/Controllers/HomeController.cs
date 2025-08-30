@@ -17,6 +17,26 @@ namespace KelCVBajaDivaManufaktur.Controllers
             _context = context;
         }
 
+        private ProductSalesViewModel GetProductSales()
+        {
+            var result = _context.Transaksi
+                .GroupBy(t => t.Produk.NamaProduk)
+                .Select(g => new
+                {
+                    ProductName = g.Key,
+                    TotalSales = g.Sum(t => t.Jumlah * t.Produk.Harga)
+                })
+                .ToList();
+
+            var productSales = new ProductSalesViewModel
+            {
+                ProductNames = result.Select(r => r.ProductName).ToList(),
+                TotalSales = result.Select(r => r.TotalSales).ToList()
+            };
+
+            return productSales;
+        }
+
         public IActionResult Index()
         {
             var model = new DashboardViewModel
@@ -24,11 +44,30 @@ namespace KelCVBajaDivaManufaktur.Controllers
                 JumlahTransaksi = _context.Transaksi.Count(),
                 JumlahProduk = _context.Produk.Count(),
                 JumlahBahanBaku = _context.BahanBaku.Count(),
-                JumlahSupplier = _context.Supplier.Count()
+                JumlahSupplier = _context.Supplier.Count(),
+                TransaksiList = _context.Transaksi
+                    .Include(t => t.Produk)
+                    .ToList(),
+                PesanBBList = _context.PesanBB
+                    .Include(t => t.Supplier)
+                    .Include(t => t.BahanBaku)
+                    .ToList(),
+                TotalBayarSumByMonth = GetTotalBayarSumByMonth(),
+                ProductSales = GetProductSales(),
             };
 
             return View(model);
 
+        }
+        private List<decimal> GetTotalBayarSumByMonth()
+        {
+            var result = _context.Transaksi
+                .GroupBy(t => t.TanggalBeli.Month)
+                .OrderBy(g => g.Key)
+                .Select(g => g.Sum(t => t.TotalBayar))
+                .ToList();
+
+            return result;
         }
 
         public IActionResult Privacy()

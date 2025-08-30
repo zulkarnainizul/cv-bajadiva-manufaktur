@@ -1,7 +1,10 @@
-﻿namespace KelCVBajaDivaManufaktur.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace KelCVBajaDivaManufaktur.Models
 {
     public class Produk
     {
+        [Key]
         public int Id { get; set; }
         public string? NamaProduk { get; set; }
         public string? GambarProduk { get; set; }

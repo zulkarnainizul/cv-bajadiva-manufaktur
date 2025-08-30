@@ -1,4 +1,5 @@
-﻿@model IEnumerable<KelCVBajaDivaManufaktur.Models.BahanBaku>
+﻿@inject IHttpContextAccessor httpContextaccessor
+@model IEnumerable<KelCVBajaDivaManufaktur.Models.BahanBaku>
 
 @{
     ViewData["Title"] = "Index";
@@ -9,72 +10,189 @@
         overflow-y: auto;
     }
 </style>
-<div class="card">
-    <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center">
-            <h4 class="card-title">Data Bahan Baku</h4>
-            <a asp-action="Create" class="btn btn-success">
-                <i class="fa fa-plus"></i> Tambah
-            </a>
-        </div>
-        <p class="card-description">Daftar Bahan Baku Tersedia</p>
-        <form asp-controller="BahanBakus" asp-action="Index" method="get">
-            <div class="input-group">
-                <div class="input-group-prepend hover-cursor" id="search">
-                    <span class="input-group-text" id="search">
-                        <i class="icon-search"></i>
-                    </span>
-                </div>
-                <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
+      @if (httpContextaccessor.HttpContext.Request.Cookies["hak_akses"] == "Supplier")
+{
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="card-title">Data Bahan Baku</h4>
+                <a asp-action="Create" class="btn btn-success">
+                    <i class="fa fa-plus"></i> Tambah
+                </a>
             </div>
-        </form>
 
-        <div class="table-responsive mt-3 table-container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama Bahan</th>
-                        <th>Stok</th>
-                        <th>Satuan</th>
-                        <th>Supplier</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{
-                        int rowNumber = 1; // Inisialisasi nomor baris
-                    }
-                    @foreach (var item in Model)
-                    {
+            <p class="card-description">Daftar Bahan Baku Tersedia</p>
+            <form asp-controller="BahanBakus" asp-action="Index" method="get">
+                <div class="input-group">
+                    <div class="input-group-prepend hover-cursor" id="search">
+                        <span class="input-group-text" id="search">
+                            <i class="icon-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
+                </div>
+            </form>
+
+            <div class="table-responsive mt-3 table-container">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>@rowNumber</td>
-                            <td>@Html.DisplayFor(modelItem => item.NamaBahan)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Stok)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Satuan)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Supplier)</td>
-                            <td class="d-flex">
-                                <form asp-action="Edit" asp-route-id="@item.Id" method="get">
-                                    <button type="submit" class="btn btn-warning btn-sm mr-1" title="Edit">
-                                        Edit
-                                    </button>
-                                </form>
-                                <form asp-action="Details" asp-route-id="@item.Id" method="get">
-                                    <button type="submit" class="btn btn-info btn-sm mr-1" title="Details">
-                                        Details
-                                    </button>
-                                </form>
-                                <form asp-action="Delete" asp-route-id="@item.Id" method="post">
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
-                                        Delete
-                                    </button>
-                                </form>
-                            </td>
+                            <th>No</th>
+                            <th>Nama Bahan</th>
+                            <th>Stok</th>
+                            <th>Satuan</th>
+                            <th>Client</th>
+                            <th>Aksi</th>
                         </tr>
-                        rowNumber++;
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @{
+                            int rowNumber = 1; // Inisialisasi nomor baris
+                        }
+                        @foreach (var item in Model.Where(m => m.Supplier.NamaSupplier == "PT. Texco"))
+                        {
+                            <tr>
+                                <td>@rowNumber</td>
+                                <td>@Html.DisplayFor(modelItem => item.NamaBahan)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Stok)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Satuan)</td>
+                                <td>CV Baja Diva Manufaktur</td>
+                                <td class="d-flex">
+                                    <form id="formTambahStok" asp-action="TambahStok" asp-route-id="@item.Id" method="post">
+                                        <button type="submit" class="btn btn-primary btn-sm mr-1">
+                                            + Stok
+                                        </button>
+                                    </form>
+                                    <form asp-action="Edit" asp-route-id="@item.Id" method="get">
+                                        <button type="submit" class="btn btn-warning btn-sm mr-1" title="Edit">
+                                            Edit
+                                        </button>
+                                    </form>
+                                    <form asp-action="Details" asp-route-id="@item.Id" method="get">
+                                        <button type="submit" class="btn btn-info btn-sm mr-1" title="Details">
+                                            Details
+                                        </button>
+                                    </form>
+                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                        <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            rowNumber++;
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="card-title">Data Bahan Baku</h4>
+                <div class="d-flex">
+                    <a asp-controller="PesanBBs" asp-action="Create" class="btn btn-success mr-3">
+                        <i class="fa fa-plus"></i> Pesan
+                    </a>
+                    <a asp-action="Create" class="btn btn-primary mr-3">
+                        <i class="fa fa-plus"></i> Tambah
+                    </a>
+                   
+                </div>
+            </div>
+            <p class="card-description">Daftar Bahan Baku Tersedia</p>
+            <form asp-controller="BahanBakus" asp-action="Index" method="get">
+                <div class="input-group">
+                    <div class="input-group-prepend hover-cursor" id="search">
+                        <span class="input-group-text" id="search">
+                            <i class="icon-search"></i>
+                        </span>
+                    </div>
+                    <input type="text" name="SearchString" class="form-control hover-cursor" id="search" placeholder="Search now" aria-label="search" aria-describedby="search">
+                </div>
+            </form>
+
+            <div class="table-responsive mt-3 table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Bahan</th>
+                            <th>Stok</th>
+                            <th>Satuan</th>
+                            <th>Supplier</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int rowNumber = 1; // Inisialisasi nomor baris
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@rowNumber</td>
+                                <td>@Html.DisplayFor(modelItem => item.NamaBahan)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Stok)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Satuan)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Supplier.NamaSupplier)</td>
+                                <td class="d-flex">
+                                    <form asp-action="Details" asp-route-id="@item.Id" method="get">
+                                        <button type="submit" class="btn btn-info btn-sm mr-1" title="Details">
+                                            Details
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            rowNumber++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $(document).ready(function () {
+        $('#formTambahStok').submit(function (e) {
+            e.preventDefault(); // Mencegah pengiriman formulir
+
+            // Mendapatkan ID BahanBaku dari atribut form
+            var bahanBakuId = $(this).attr('data-id');
+
+            // Di sini Anda dapat menambahkan logika untuk penambahan stok
+            // Misalnya, Anda bisa melakukan permintaan AJAX ke server
+            // untuk menangani penambahan stok.
+
+            // Contoh permintaan AJAX menggunakan jQuery
+            $.ajax({
+                url: '/BahanBakus/TambahStok/' + bahanBakuId,
+                type: 'POST',
+                success: function (data) {
+                    alert('Stok berhasil ditambahkan.');
+                },
+                error: function () {
+                    alert('Gagal menambahkan stok.');
+                }
+            });
+        });
+    });
+</script>
+
+@{
+    var successMessage = TempData["SuccessMessage"] as string;
+}
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            alert('@successMessage');
+        });
+    </script>
+}

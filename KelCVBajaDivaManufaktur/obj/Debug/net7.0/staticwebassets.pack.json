@@ -349,6 +349,70 @@
       "PackagePath": "staticwebassets\\fonts\\Roboto\\Roboto-Regular.woff2"
     },
     {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\07ef08d1-1783-4e15-b306-d599175aca0b_Mesin Peras Kelapa.png",
+      "PackagePath": "staticwebassets\\images\\07ef08d1-1783-4e15-b306-d599175aca0b_Mesin Peras Kelapa.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\1e5b592e-5c63-4ef7-95f4-517162eb390e_Mesin Pembelah Pinang.png",
+      "PackagePath": "staticwebassets\\images\\1e5b592e-5c63-4ef7-95f4-517162eb390e_Mesin Pembelah Pinang.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\3549b227-cd9e-4051-bb87-cfd6f05dbe8d_10.png",
+      "PackagePath": "staticwebassets\\images\\3549b227-cd9e-4051-bb87-cfd6f05dbe8d_10.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\370ed917-9cfd-4a59-a66d-7cc0c6f3e68d_Mesin Pencacah Daun.png",
+      "PackagePath": "staticwebassets\\images\\370ed917-9cfd-4a59-a66d-7cc0c6f3e68d_Mesin Pencacah Daun.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\3a58f044-7946-4e88-84f2-fc2c524a4898_1.png",
+      "PackagePath": "staticwebassets\\images\\3a58f044-7946-4e88-84f2-fc2c524a4898_1.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\3e448b86-21bb-411b-b506-1ebf2ead5e52_Mesin Pencetak Pelet.jpg",
+      "PackagePath": "staticwebassets\\images\\3e448b86-21bb-411b-b506-1ebf2ead5e52_Mesin Pencetak Pelet.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\535befa0-f115-4d07-be71-ae8cf3b4ea12_Mesin Pencacah Daun.png",
+      "PackagePath": "staticwebassets\\images\\535befa0-f115-4d07-be71-ae8cf3b4ea12_Mesin Pencacah Daun.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\6d4880fb-a69b-48c9-a499-23c876eb4bd0_Mesin Pencacah Daun.png",
+      "PackagePath": "staticwebassets\\images\\6d4880fb-a69b-48c9-a499-23c876eb4bd0_Mesin Pencacah Daun.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\7ea64c72-bbbe-4650-b222-613d819bad0e_5.png",
+      "PackagePath": "staticwebassets\\images\\7ea64c72-bbbe-4650-b222-613d819bad0e_5.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\8556596c-7bf3-4741-b50a-398384876538_2.png",
+      "PackagePath": "staticwebassets\\images\\8556596c-7bf3-4741-b50a-398384876538_2.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\886a60bf-6b85-41ec-92cd-3c93ed0e889a_Mesin Pengolah Sawit.png",
+      "PackagePath": "staticwebassets\\images\\886a60bf-6b85-41ec-92cd-3c93ed0e889a_Mesin Pengolah Sawit.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\921219be-d5cf-4c29-a5c6-fc0794ee6c3d_Mesin Mixer Bata.jpg",
+      "PackagePath": "staticwebassets\\images\\921219be-d5cf-4c29-a5c6-fc0794ee6c3d_Mesin Mixer Bata.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\a2957b39-f2be-4c97-9bcf-84c5545b94ef_Mesin Ribbon Mixxing.jpg",
+      "PackagePath": "staticwebassets\\images\\a2957b39-f2be-4c97-9bcf-84c5545b94ef_Mesin Ribbon Mixxing.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\a48b860b-22fc-4a0f-a713-224ce9bbf2e0_7.png",
+      "PackagePath": "staticwebassets\\images\\a48b860b-22fc-4a0f-a713-224ce9bbf2e0_7.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\a850c128-be8d-45a5-87a1-2a8f29e45701_Mesin Pengolah Sawit.png",
+      "PackagePath": "staticwebassets\\images\\a850c128-be8d-45a5-87a1-2a8f29e45701_Mesin Pengolah Sawit.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\admin.jpg",
+      "PackagePath": "staticwebassets\\images\\admin.jpg"
+    },
+    {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\auth\\lockscreen-bg.jpg",
       "PackagePath": "staticwebassets\\images\\auth\\lockscreen-bg.jpg"
     },
@@ -359,6 +423,18 @@
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\auth\\register-bg.jpg",
       "PackagePath": "staticwebassets\\images\\auth\\register-bg.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\b4c76355-e026-428b-8632-907888109d75_Mesin Mixer Bata.jpg",
+      "PackagePath": "staticwebassets\\images\\b4c76355-e026-428b-8632-907888109d75_Mesin Mixer Bata.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\beb4af50-9bd8-409d-a58a-1fcce84e1ab8_5.png",
+      "PackagePath": "staticwebassets\\images\\beb4af50-9bd8-409d-a58a-1fcce84e1ab8_5.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\c6c46372-92f5-4532-9965-4f5bf3251c6e_Mesin Mixer Bata.jpg",
+      "PackagePath": "staticwebassets\\images\\c6c46372-92f5-4532-9965-4f5bf3251c6e_Mesin Mixer Bata.jpg"
     },
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\carousel\\banner_1.jpg",
@@ -407,6 +483,10 @@
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\carousel\\banner_9.jpg",
       "PackagePath": "staticwebassets\\images\\carousel\\banner_9.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\d6098806-9ea3-4e7a-b8f6-004a59ab2d4e_4.png",
+      "PackagePath": "staticwebassets\\images\\d6098806-9ea3-4e7a-b8f6-004a59ab2d4e_4.png"
     },
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\dashboard\\people.png",
@@ -499,6 +579,18 @@
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\demo\\vertical-default.jpg",
       "PackagePath": "staticwebassets\\images\\demo\\vertical-default.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\df68e95e-cefc-4cd3-8d56-fc9a55ee5625_Mesin Ribbon Mixxing.jpg",
+      "PackagePath": "staticwebassets\\images\\df68e95e-cefc-4cd3-8d56-fc9a55ee5625_Mesin Ribbon Mixxing.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\f805fff4-c1ac-4cdb-b98e-4cd85899a5c5_Mesin Pencacah Daun.png",
+      "PackagePath": "staticwebassets\\images\\f805fff4-c1ac-4cdb-b98e-4cd85899a5c5_Mesin Pencacah Daun.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\f97e6c2a-880c-4c0f-a6a2-1eb90208442f_Mesin Pembuka Batok Kelapa.jpg",
+      "PackagePath": "staticwebassets\\images\\f97e6c2a-880c-4c0f-a6a2-1eb90208442f_Mesin Pembuka Batok Kelapa.jpg"
     },
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\faces\\face1.jpg",
@@ -745,6 +837,10 @@
       "PackagePath": "staticwebassets\\images\\file-icons\\64\\008-archive.png"
     },
     {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\karyawan.jpg",
+      "PackagePath": "staticwebassets\\images\\karyawan.jpg"
+    },
+    {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\lightbox\\play-button.png",
       "PackagePath": "staticwebassets\\images\\lightbox\\play-button.png"
     },
@@ -795,6 +891,14 @@
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\logo2.jpeg",
       "PackagePath": "staticwebassets\\images\\logo2.jpeg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\logoSup1.jpg",
+      "PackagePath": "staticwebassets\\images\\logoSup1.jpg"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\logoSup2.jpg",
+      "PackagePath": "staticwebassets\\images\\logoSup2.jpg"
     },
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\market.png",
@@ -955,6 +1059,10 @@
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\sprites\\yellow.png",
       "PackagePath": "staticwebassets\\images\\sprites\\yellow.png"
+    },
+    {
+      "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\images\\supplier.png",
+      "PackagePath": "staticwebassets\\images\\supplier.png"
     },
     {
       "Id": "C:\\Aplikasi\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\KelCVBajaDivaManufaktur\\wwwroot\\js\\Chart.roundedBarCharts.js",
