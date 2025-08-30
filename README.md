@@ -52,7 +52,7 @@ Proyek ini menggunakan **Entity Framework Migrations**. Pastikan **SQL Server Ex
 
 ### 3. Tambahkan Data Pengguna
 
-Database yang baru dibuat masih kosong. Anda perlu menambahkan akun **admin** secara manual di tabel **Pengguna** agar bisa login.
+Database yang baru dibuat masih kosong. Anda perlu menambahkan akun **admin** secara manual di tabel **Pengguna** agar bisa login. Hak Akses terdiri atas Admin, Karyawan, dan Supplier.
 
 ---
 
